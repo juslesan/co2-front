@@ -1,0 +1,22 @@
+{
+  "name": "co2-front",
+  "version": "1.0.0",
+  "description": "https://www.reaktor.com/ennakkotehtava-ohjelmistokehittaja/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juslesan/co2-front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juslesan/co2-front/issues"
+  },
+  "homepage": "https://github.com/juslesan/co2-front#readme",
+  "dependencies": {
+    "react": "^16.7.0"
+  }
+}

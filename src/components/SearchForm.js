@@ -3,24 +3,21 @@ import { ControlLabel, Button, FormGroup, FormControl } from 'react-bootstrap'
 import './SearchForm.css'
 
 // Renders login form
-const SearchForm = ({ handleSubmit, loginMessage, handleChange, username, password, reCaptcha, reCaptchaExpire, verified }) => {
-
-
-  verified = true;
+const SearchForm = ({ handleSubmit, loginMessage, handleChange}) => {
 
   return (
     <div className="searchWrapper">
       <form onSubmit={handleSubmit}>
         <FormGroup className="searchForm">
-          {/* <ControlLabel>Käyttäjätunnus: </ControlLabel> */}
           <FormControl
-            className="loginInput"
-            // value={username}
-            // onChange={null}
+            className="searchInput"
+            // value={"name"}
+            onChange={handleChange}
             name="search"
+            placeholder="Search for a country"
           />
 
-          <Button className="loginSubmit" type="submit" bsStyle="success" disabled={!verified} onClick={handleSubmit} id='login'>Hae</Button>
+          <Button className="searchSubmit" type="submit" bsStyle="success" onClick={handleSubmit} id='search'>Hae</Button>
 
         </FormGroup>
       </form>

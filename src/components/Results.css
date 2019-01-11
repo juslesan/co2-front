@@ -1,0 +1,18 @@
+.resultsWrapper {
+    position: relative;
+    text-align: center;
+    
+}
+
+.resultsWrapper > h1 {
+    text-align: center;
+
+}
+
+.renderResults {
+    position: relative;
+}
+
+.renderResults > h1 {
+    text-align: center;
+}

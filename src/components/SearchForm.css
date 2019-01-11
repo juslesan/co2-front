@@ -1,0 +1,16 @@
+.searchInput {
+    width: 35vw;    
+    position: relative;
+    float: left;
+}
+
+.searchSubmit {
+    position: relative;
+    float: left;
+}
+
+.searchWrapper {
+    position: relative;
+    display: inline-block;
+    left: 25vw;
+}

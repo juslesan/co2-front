@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts'
 
 class Results extends Component {
     constructor(props) {
@@ -17,6 +18,12 @@ class Results extends Component {
                 :
                 <div>
                     <h1>{country.name}</h1>
+
+                        <p>{country.info[0].population}</p>
+                        <LineChart width={400} height={400} data={data}>
+                            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                        </LineChart>
+
                     {/* <p>{country.populations}</p> */}
                     {/* <p>{country.emissions}</p> */}
                 </div>      
@@ -25,7 +32,7 @@ class Results extends Component {
         )
     }
     render () {
-        // console.log(this.props.error)
+        console.log(this.props.country)
         return (
             <div className="resultsWrapper">
                 {this.props.error === '' ?

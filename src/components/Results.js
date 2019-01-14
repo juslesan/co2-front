@@ -1,38 +1,60 @@
 import React, {Component} from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts'
+import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
+import Chart from 'chart.js'
+import jsonUtils from '../utils/jsonUtils.js'
+
+
+import './Results.css'
 
 class Results extends Component {
     constructor(props) {
         super(props)    
         this.state = {
         }
+        ReactChartkick.addAdapter(Chart)
+
     }
 
     renderCountry = (country) => {
+        // console.log(country)
+        let emissions = undefined
+        if (country !== null && country !== undefined) {
+            if (this.props.perCapita) {
+                emissions = jsonUtils.perCapita(country.info[1].data, country.info[0].data)
+                emissions = jsonUtils.removeUntrackedYears(emissions)
+                console.log(emissions)
+            } else {
+            emissions = jsonUtils.removeUntrackedYears(country.info[1].data)
+            }
+        }
+        
         return (
             <div className="renderResults">
                 {country === undefined || country === null ?
 
-                    <h1>Search for emissions by country</h1>
-
+                    <h1 className="searchHeader">Search for emissions by country</h1>
+                
                 :
-                <div>
-                    <h1>{country.name}</h1>
+                <div> 
+                    <h1 className="searchHeader">{country.name}</h1>
+                    {this.props.perCapita ? 
+                        <p className="chartTitle">Emissions in kilotonnes per capita</p>
+                        :
+                        <p className="chartTitle">Emissions in kilotonnes</p>
 
-                        <p>{country.info[0].population}</p>
-                        <LineChart width={400} height={400} data={data}>
-                            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                        </LineChart>
+                    }
+                    <div className="emissionChart">
+                        <LineChart curve={false} data={emissions} />
+                    </div>
 
-                    {/* <p>{country.populations}</p> */}
-                    {/* <p>{country.emissions}</p> */}
                 </div>      
                 }
             </div>
         )
     }
+
     render () {
-        console.log(this.props.country)
+        // console.log(this.props.country)
         return (
             <div className="resultsWrapper">
                 {this.props.error === '' ?

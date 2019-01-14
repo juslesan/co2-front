@@ -17,7 +17,7 @@ const SearchForm = ({ handleSubmit, loginMessage, handleChange}) => {
             placeholder="Search for a country"
           />
 
-          <Button className="searchSubmit" type="submit" bsStyle="success" onClick={handleSubmit} id='search'>Hae</Button>
+          <Button className="searchSubmit" type="submit" bsStyle="success" onClick={handleSubmit} id='search'>Go</Button>
 
         </FormGroup>
       </form>

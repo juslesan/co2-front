@@ -11,8 +11,14 @@
 
 .renderResults {
     position: relative;
+    margin-top: 4vw;
 }
 
-.renderResults > h1 {
+.chartTitle {
+    font-size: 2vw;
+}
+.searchHeader {
+    font-size: 4vw;
+    position: relative;
     text-align: center;
 }

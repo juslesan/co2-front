@@ -1,16 +1,26 @@
 .searchInput {
-    width: 35vw;    
+    width: 50vw;    
     position: relative;
     float: left;
+    margin-left: 50px;
+
 }
 
 .searchSubmit {
     position: relative;
     float: left;
+    left: -50px;
+    width: 50px;
 }
 
 .searchWrapper {
     position: relative;
     display: inline-block;
-    left: 25vw;
+    left: 15vw;
+}
+
+.emissionChart {
+    position: relative;
+    left: 10%;
+    width: 80%
 }

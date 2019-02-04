@@ -1,12 +1,21 @@
 import React from 'react'
-import {Checkbox} from 'react-bootstrap'
 import './PerCapita.css'
-const PerCapita = ({handler}) => {
+const PerCapita = ({perCapita, handler}) => {
+
     return (
+    
     <div className="perCapita">
-        <Checkbox onClick={handler}>
-            Per Capita
-        </Checkbox>
+        {perCapita ?
+        <button className="perCapitaCheckButtonTrue" onClick={handler}>
+        </button>
+
+        :
+        <button className="perCapitaCheckButtonFalse" onClick={handler}>
+        </button>
+        
+        }
+        <p>Per capita</p>
+
     </div>
     )
 }

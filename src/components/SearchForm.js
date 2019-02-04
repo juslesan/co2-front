@@ -1,30 +1,24 @@
 import React from 'react'
-import { ControlLabel, Button, FormGroup, FormControl } from 'react-bootstrap'
+import {FormGroup} from 'react-bootstrap'
 import './SearchForm.css'
+import searchIcon from '../img/icon_search.png'
 
 // Renders login form
-const SearchForm = ({ handleSubmit, loginMessage, handleChange}) => {
+const SearchForm = ({ handleSubmit, handleChange}) => {
 
   return (
     <div className="searchWrapper">
       <form onSubmit={handleSubmit}>
         <FormGroup className="searchForm">
-          <FormControl
-            className="searchInput"
-            // value={"name"}
-            onChange={handleChange}
-            name="search"
-            placeholder="Search for a country"
-          />
-
-          <Button className="searchSubmit" type="submit" bsStyle="success" onClick={handleSubmit} id='search'>Go</Button>
+          
+          <input type="text" placeholder="Search for a country" name="search" onChange={handleChange}/>
+          
+          <button className="searchSubmit" type="submit" onClick={handleSubmit} id='search'>
+            <img alt="Search" src={searchIcon}></img>
+          </button>
 
         </FormGroup>
       </form>
-
-      <div className="message">
-        {loginMessage}
-      </div>
     </div>
   )
 

@@ -24,8 +24,8 @@ const perCapita = (emissions, populations) => {
     const emissionKeys = Object.keys(emissions)
     const populationValues = Object.values(populations)
     // const populationKeys = Object.keys(populations)
-    console.log(emissionValues)
-    console.log(populationValues)
+    // console.log(emissionValues)
+    // console.log(populationValues)
 
     for (let i = 0; i < emissionKeys.length; i++) {
         if (emissionValues[i] !== "" && populationValues[i] !== "") {

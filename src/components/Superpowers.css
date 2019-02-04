@@ -1,11 +1,11 @@
-.perCapita {
+.superpowers {
     position: relative;
     float: left;
-    left: 0.5vw;
+    left: 3vw;
     /* margin-top: 2vw; */
-    /* width: % */
+    /* width: 50% */
 }
-.perCapita > p {
+.superpowers > p {
     position: relative;
     font-size: 2vw;
     left: 1.0vw;
@@ -13,9 +13,9 @@
     float: left;
 }
 
-.perCapitaCheckButtonTrue {
-    border: 1px solid lightgrey;
-    background-color: lightgrey;
+.superpowerCheckButtonTrue {
+    border: 1px solid lightskyblue;
+    background-color: lightskyblue;
     border-radius: 0.4vw;
     position: relative;
     float: left;
@@ -24,8 +24,8 @@
     padding: 0;
 }
 
-.perCapitaCheckButtonFalse {
-    border: 1px solid lightgrey;
+.superpowerCheckButtonFalse {
+    border: 1px solid lightskyblue;
     background-color: white;
     border-radius: 0.4vw;
     position: relative;

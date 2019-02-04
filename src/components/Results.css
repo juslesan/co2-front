@@ -1,24 +1,34 @@
 .resultsWrapper {
     position: relative;
     text-align: center;
+    top: 5vw;
+    margin-bottom: 5vh;
     
-}
-
-.resultsWrapper > h1 {
-    text-align: center;
-
 }
 
 .renderResults {
     position: relative;
+    width: 100%;
     margin-top: 2vw;
 }
 
 .chartTitle {
-    font-size: 2vw;
-}
-.searchHeader {
-    font-size: 4vw;
     position: relative;
     text-align: center;
+    font-size: 3vw;
+}
+.searchHeader {
+    width: 100%;
+    height: auto;
+    font-size: 4vw;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.emissionChart {
+    position: relative;
+    left: 0;
+    font-size: 1vw;
+    width: 100%
 }

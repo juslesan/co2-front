@@ -27,20 +27,17 @@ class App extends Component {
     )
   }
 
-
+  // Handles typing in search field
   handleSearchFieldChange = (event) => {
     this.setState({ searchField: event.target.value })
   }
   
+  // Handles search function
   handleSearch = (event) => {
     event.preventDefault()
-
-    try {
-      
+    try {      
       countryService.getByName(this.state.searchField).then(searched => { 
-        if (searched.error === undefined || searched.error === null) {
-          // console.log(searched)
-          
+        if (searched.error === undefined || searched.error === null) {          
           this.setState({country: searched,
                         error: ''})
         } else {
@@ -48,20 +45,22 @@ class App extends Component {
                         country: null})
         }
       })
-      }
-      catch (exception) {
+    } catch (exception) {
         this.setState({error: 'ERROR'})
     }
   }
+
+  // Handles change in per capita check button
   perCapitaHandler = () => {
     this.setState({perCapita: !this.state.perCapita})
   }
 
+  // Handles change in superpower check button
   superpowersHandler = () => {
     this.setState({superpowers: !this.state.superpowers})
   }
+
   render() {
-    // console.log(this.state.superpowerData)
     return (
       <div className="container">
         <div className="headerDiv">

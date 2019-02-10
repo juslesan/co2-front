@@ -3,7 +3,7 @@ import {FormGroup} from 'react-bootstrap'
 import './SearchForm.css'
 import searchIcon from '../img/icon_search.png'
 
-// Renders login form
+// Renders the search form
 const SearchForm = ({ handleSubmit, handleChange}) => {
 
   return (

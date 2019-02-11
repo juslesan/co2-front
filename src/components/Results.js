@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import ReactChartkick, { LineChart } from 'react-chartkick'
 import Chart from 'chart.js'
-import jsonUtils from '../utils/jsonUtils.js'
+import {searchedAndSuperpowers,
+        searchedAndSuperpowersPerCapita,
+        removeUntrackedYears,
+        perCapita} from '../utils/jsonUtils.js'
 
 
 import './Results.css'
@@ -19,9 +22,9 @@ class Results extends Component {
         let emissions = []
         if (country !== null && country !== undefined) {
             if (this.props.perCapita) {
-                emissions = jsonUtils.searchedAndSuperpowersPerCapita(country, superpowersData)
+                emissions = searchedAndSuperpowersPerCapita(country, superpowersData)
             } else {
-                emissions = jsonUtils.searchedAndSuperpowers(country, superpowersData)               
+                emissions = searchedAndSuperpowers(country, superpowersData)               
             }
         }
         return (
@@ -35,11 +38,11 @@ class Results extends Component {
         let emissions = undefined
         if (country !== null && country !== undefined) {
             if (this.props.perCapita) {
-                emissions = jsonUtils.perCapita(country.info[1].data, country.info[0].data)
-                emissions = jsonUtils.removeUntrackedYears(emissions)
+                emissions = perCapita(country.info[1].data, country.info[0].data)
+                emissions = removeUntrackedYears(emissions)
                 
             } else {
-                emissions = jsonUtils.removeUntrackedYears(country.info[1].data)
+                emissions = removeUntrackedYears(country.info[1].data)
             }
         }
         

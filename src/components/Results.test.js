@@ -1,5 +1,6 @@
-const jsonUtils = require('./jsonUtils.js')
-
+import React from 'react'
+import { shallow } from 'enzyme'
+import Results from './Results'
 
 const mockSearched = {
     name: "Finland",
@@ -154,43 +155,27 @@ const mockSuperpowers = [
     }
 ]
 
-test('All empty emission years are removed fron data JSON', ()  => {
-    const removed = jsonUtils.removeUntrackedYears(mockSearched.info[1].data)
-    // console.log(removed)
-    expect(removed['1965']).toEqual('25327.969')
-    expect(removed['1966']).toEqual(undefined)
-})
+describe.only('<Results />', () => {
+    
+    it('Renders error', () => {
 
-test('All empty population years are removed fron data JSON', ()  => {
-    const removed = jsonUtils.removeUntrackedYears(mockSearched.info[0].data)
-    // console.log(removed)
-    expect(removed['1963']).toEqual('4523309')
-    expect(removed['1964']).toEqual(undefined)
-})
+        const mockHandler = jest.fn()
+        const resultsComponent = shallow(<Results error={'error'}/>)
+        const contentDiv = resultsComponent.find('.searchHeader')
+        expect(contentDiv.html()).toContain("error")
 
-test('Per capita works', () => {
-    const perCapita = jsonUtils.perCapita(mockSearched.info[1].data, mockSearched.info[0].data)
-    // console.log(perCapita)
-    expect(perCapita['1964']).toEqual(undefined) // Does not calculate untrackeds
-    expect(perCapita['1960']).toEqual(0.003409846727743195)
-    expect(perCapita['1961']).toEqual(0.0033488772148876768)
-    expect(perCapita['1962']).toEqual(0.0037425673664343503)
-    expect(perCapita['1963']).toEqual(0.004279630907373341)
-})
+    })
 
-test('Superpowers and serched added to same json', () => {
-    const res = jsonUtils.searchedAndSuperpowers(mockSearched, mockSuperpowers)
-    expect(res.length).toEqual(5)
-})
+    it('Renders results without options', () => {
+        const resultsComponent = shallow(<Results country={mockSearched} error={""} perCapita={false} superpowers={false} superpowersData={mockSuperpowers}/>)
+        const contentDiv = resultsComponent.find('.renderResults')
+        expect(contentDiv.html()).toContain("Emissions in kilotonnes")
+    })
 
-test('Superpowers and serched added to same json per capita', () => {
-    const res = jsonUtils.searchedAndSuperpowersPerCapita(mockSearched, mockSuperpowers)
-    // console.log(res)
-    expect(res.length).toEqual(5)
-    expect(res[0].data['1960']).toEqual(0.003409846727743195)
-    expect(res[1].data['1960']).toEqual(0.003409846727743195)
-    expect(res[2].data['1960']).toEqual(0.003409846727743195)
-    expect(res[3].data['1960']).toEqual(0.003409846727743195)
-    expect(res[4].data['1960']).toEqual(0.003409846727743195)
+    it('Renders results perCapita', () => {
+        const resultsComponent = shallow(<Results country={mockSearched} error={""} perCapita={true} superpowers={false} superpowersData={mockSuperpowers}/>)
+        const contentDiv = resultsComponent.find('.renderResults')
+        expect(contentDiv.html()).toContain("Emissions in kilotonnes per capita")
+    })
 
 })

@@ -1,5 +1,6 @@
 
 // Removes all years from emissions with empty emissions
+// Works for population data aswell!
 
 const removeUntrackedYears = (emissions) => {
     const values = Object.values(emissions)
@@ -95,4 +96,4 @@ const searchedAndSuperpowersPerCapita = (searchedCountry, superpowers) => {
 }
 
 
-export default {removeUntrackedYears, perCapita, removeUntrackedUpperYears, searchedAndSuperpowers, searchedAndSuperpowersPerCapita}
+export {removeUntrackedYears, perCapita, removeUntrackedUpperYears, searchedAndSuperpowers, searchedAndSuperpowersPerCapita}
